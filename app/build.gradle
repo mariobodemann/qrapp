@@ -3,6 +3,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('/home/mario/private/Qrapp/release.jks')
+            storePassword 'qqqqqq'
+            keyAlias 'q'
+            keyPassword 'qqqqqq'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
@@ -15,8 +23,12 @@ android {
 
         externalNativeBuild {
             cmake {
-                cppFlags ''
+                cppFlags '-Os'
             }
+        }
+
+        ndk {
+            abiFilters 'arm64-v8a'
         }
     }
 
